@@ -9,3 +9,4 @@ rvm gemset list
 
 rvm --default use ruby-2.3.0@saasapp
 gem install rails -v 5.0.0 --no-ri --no-rdoc
+rails s -b $IP -p $PORT
