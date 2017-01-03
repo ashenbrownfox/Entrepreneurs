@@ -31,17 +31,15 @@
         
       </div>
       <div class="collapse navbar-collapse" id="main-nav-collapse">
-        <div class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-          Signed in as <%= current_user.email %>
-            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-primary navbar-btn" %>
-          <% else %>
-            <%= link_to "Log In", new_user_session_path, class: "btn btn-primary navbar-btn" %>
-            
-          <% end %>
-        </div>
-        
         <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li><%= link_to "Community", users_path %></li>
+            <li><%= link_to "My Account", edit_user_registration_path %></li>
+            Signed in as <%= current_user.email %>
+              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-primary navbar-btn" %>
+            <% else %>
+              <%= link_to "Log In", new_user_session_path, class: "btn btn-primary navbar-btn" %>
+          <% end %>
           <li><%= link_to "About", about_path %></li>
           <li><%= link_to "Contact Us", new_contact_path %></li>
         </ul>
